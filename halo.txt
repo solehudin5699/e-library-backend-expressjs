@@ -1,1 +1,4 @@
-kambing
+sss
+daftar:
+1.satu
+2.dua
