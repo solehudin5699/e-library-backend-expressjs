@@ -1,5 +1,5 @@
 const genreModels = require('../models/genres')
-const formResponse = require('../helpers/form/formResponse');
+const formResponse = require('../helpers/form/responseForm');
 
 const genreControllers={
   getAllGenre:(_,res)=>{
