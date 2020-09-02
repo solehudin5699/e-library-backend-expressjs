@@ -32,6 +32,16 @@ const bookControllers={
         formResponse.err(res,error,500);
     })
   },
+  searchBookByTitle :(req,res)=>{
+    const{title,by,order,page,limit}=req.query;
+    bookModels
+    .searchBookByTitle(title,by,order,page,limit)
+    .then((results)=>{
+        formResponse.pagination(req,res,results,200);
+    }).catch((error)=>{
+        formResponse.err(res,error,500);
+    })
+}
 }
 
 module.exports=bookControllers;

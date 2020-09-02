@@ -11,5 +11,6 @@ const booksRouter =express.Router();
 booksRouter.get('/',bookControllers.getAllBooks)
 booksRouter.post('/',bookControllers.postNewBooks)
 booksRouter.delete('/',bookControllers.deleteBooks)
+booksRouter.get('/search',bookControllers.searchBookByTitle)
 
 module.exports=booksRouter;

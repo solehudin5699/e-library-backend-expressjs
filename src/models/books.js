@@ -40,6 +40,19 @@ const bookModels={
       })
     });
   },
+  searchBookByTitle :(word, by, order,page,limit)=>{
+    return new Promise((resolve,reject)=>{
+      const offset =(page-1)*limit;
+      const queryString =`SELECT * FROM books WHERE title LIKE '%${word}%' ORDER BY ${by} ${order} LIMIT ${limit} OFFSET ${offset}`;
+      db.query(queryString,[word,by,order,Number(limit),offset],(error,results)=>{
+        if(!error){
+          resolve(results);
+        }else{
+          reject(error);
+        }
+      }) 
+    });
+},
 }
 
 module.exports=bookModels;
