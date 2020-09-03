@@ -39,11 +39,8 @@ const uploadBridge = {
                     msg: err,
                 })
             } else {
-                // console.log(req.body)
-                // req.body.gambar_produk = `http://3.81.51.4:8000/images/${req.file.filename}`
-                // next()
                 try {
-                    req.body.avatar = `http://localhost:3000/images/${req.file.filename}`
+                    req.body.avatar = `http://localhost:${process.env.PORT}/images/${req.file.filename}`
                 } catch {
                     err
                 } finally {
@@ -61,7 +58,7 @@ const uploadBridge = {
                 })
             } else {
                 try {
-                    req.body.image = `http://localhost:3000/images/${req.file.filename}`
+                    req.body.image = `http://localhost:${process.env.PORT}/images/${req.file.filename}`
                 } catch {
                     console.log(err)
                 } finally {

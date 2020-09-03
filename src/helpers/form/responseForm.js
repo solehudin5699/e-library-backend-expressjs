@@ -3,7 +3,7 @@ const formResponse = {
         const response = {
             isSuccess: true,
             status: status,
-            data: data
+            data
         }
         res.json(response);
     },
@@ -18,8 +18,8 @@ const formResponse = {
     pagination: ({ query }, res, data) => {
         const page = Number(query.page);
         const limit = Number(query.limit);
-        const prevPage = page === 1 ? "" : `/?page=${page - 1}&limit=${limit}`;
-        const nextPage = data.length < limit ? "" : `/?page=${page + 1}&limit=${limit}`;
+        const prevPage = page === 1 ? "" : `/books?page=${page - 1}&limit=${limit}`;
+        const nextPage = data.length < limit ? "" : `/books?page=${page + 1}&limit=${limit}`;
         const responseObject = {
             success: true,
             status: 200,
