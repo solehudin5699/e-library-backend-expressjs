@@ -2,15 +2,24 @@
 const db = require('../configs/dbMySql');
 
 const bookModels = {
-  getAllBooks: (page, limit) => {
+  getAllBooks: (query) => {
+    let queryString = "";
+    if (query.length === undefined) {
+      queryString = "SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id";
+    } else {
+      if (query.page === undefined || query.limit === undefined) {
+        queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id WHERE title LIKE '%${query.search}%' ORDER BY ${query.sortby} ${query.order}`;
+      } else {
+        const offset = (Number(query.page) - 1) * Number(query.limit);
+        queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id WHERE title LIKE '%${query.search}%' ORDER BY ${query.sortby} ${query.order} LIMIT ${query.limit} OFFSET ${offset}`;
+      }
+    }
     return new Promise((resolve, reject) => {
-      const offset = (page - 1) * limit;
-      const queryString = 'SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id LIMIT ? OFFSET ?';
-      db.query(queryString, [Number(limit), offset], (error, data) => {
+      db.query(queryString, (error, results) => {
         if (!error) {
-          resolve(data);
+          resolve(results)
         } else {
-          reject(error);
+          reject(error)
         }
       });
     });
@@ -20,7 +29,7 @@ const bookModels = {
     return new Promise((resolve, reject) => {
       db.query(queryString, [body], (err, data) => {
         if (!err) {
-          resolve(data);
+          resolve(data)
         } else {
           reject(err)
         }
@@ -54,19 +63,7 @@ const bookModels = {
       })
     });
   },
-  searchBookByTitle: (word, by, order, page, limit) => {
-    return new Promise((resolve, reject) => {
-      const offset = (page - 1) * limit;
-      const queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id WHERE title LIKE '%${word}%' ORDER BY ${by} ${order} LIMIT ${limit} OFFSET ${offset}`;
-      db.query(queryString, [word, by, order, Number(limit), offset], (error, data) => {
-        if (!error) {
-          resolve(data);
-        } else {
-          reject(error);
-        }
-      })
-    });
-  },
+
 }
 
 module.exports = bookModels;
