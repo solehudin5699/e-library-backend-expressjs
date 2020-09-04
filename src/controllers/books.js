@@ -8,7 +8,6 @@ const bookControllers = {
       .getAllBooks(req.query)
       .then((data) => {
         formResponse.pagination(req.query, res, data, 200);
-
       })
       .catch((error) => {
         // console.log(req.query)
