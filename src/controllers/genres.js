@@ -9,7 +9,7 @@ const genreControllers={
       formResponse.success(res,results,200);
     })
     .catch((error)=>{
-      formResponse.error(res,error,500);
+      formResponse.err(res,error,500);
     })
   },
 }

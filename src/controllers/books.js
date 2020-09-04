@@ -4,13 +4,14 @@ const formResponse = require('../helpers/form/responseForm');
 
 const bookControllers = {
   getAllBooks: (req, res) => {
-    const { page, limit } = req.query
     bookModels
-      .getAllBooks(page, limit)
+      .getAllBooks(req.query)
       .then((data) => {
-        formResponse.pagination(req, res, data, 200);
+        formResponse.pagination(req.query, res, data, 200);
+
       })
       .catch((error) => {
+        // console.log(req.query)
         formResponse.error(res, error, 500);
       })
   },
@@ -18,7 +19,7 @@ const bookControllers = {
     bookModels
       .postNewBooks(req.body)
       .then((data) => {
-        formResponse.success(res, req.body, 200);
+        formResponse.success(req.body, res, data, 200);
       }).catch((error) => {
         formResponse.error(res, error, 500);
       })
@@ -37,17 +38,7 @@ const bookControllers = {
     bookModels
       .deleteBooks(req.query)
       .then((data) => {
-        formResponse.success(res, req.query, 200);
-      }).catch((error) => {
-        formResponse.error(res, error, 500);
-      })
-  },
-  searchBookByTitle: (req, res) => {
-    const { title, by, order, page, limit } = req.query;
-    bookModels
-      .searchBookByTitle(title, by, order, page, limit)
-      .then((data) => {
-        formResponse.pagination(req, res, data, 200);
+        formResponse.success(res, data, 200);
       }).catch((error) => {
         formResponse.error(res, error, 500);
       })
