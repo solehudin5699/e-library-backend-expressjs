@@ -37,7 +37,7 @@ const bookControllers = {
     bookModels
       .deleteBooks(req.query)
       .then((data) => {
-        formResponse.success(res, data, 200);
+        formResponse.success(res, req.query, 200);
       }).catch((error) => {
         formResponse.error(res, error, 500);
       })

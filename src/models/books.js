@@ -6,9 +6,9 @@ const bookModels = {
     return new Promise((resolve, reject) => {
       const offset = (page - 1) * limit;
       const queryString = 'SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id LIMIT ? OFFSET ?';
-      db.query(queryString, [Number(limit), offset], (error, results) => {
+      db.query(queryString, [Number(limit), offset], (error, data) => {
         if (!error) {
-          resolve(results);
+          resolve(data);
         } else {
           reject(error);
         }
@@ -46,9 +46,9 @@ const bookModels = {
   deleteBooks: (query) => {
     return new Promise((resolve, reject) => {
       const queryString = 'DELETE FROM books WHERE id=?';
-      db.query(queryString, [query.id], (error, results) => {
+      db.query(queryString, [query.id], (error, data) => {
         if (!error) {
-          resolve(results);
+          resolve(data);
         } else {
           reject(error);
         }
@@ -58,10 +58,10 @@ const bookModels = {
   searchBookByTitle: (word, by, order, page, limit) => {
     return new Promise((resolve, reject) => {
       const offset = (page - 1) * limit;
-      const queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id FROM books WHERE title LIKE '%${word}%' ORDER BY ${by} ${order} LIMIT ${limit} OFFSET ${offset}`;
-      db.query(queryString, [word, by, order, Number(limit), offset], (error, results) => {
+      const queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id WHERE title LIKE '%${word}%' ORDER BY ${by} ${order} LIMIT ${limit} OFFSET ${offset}`;
+      db.query(queryString, [word, by, order, Number(limit), offset], (error, data) => {
         if (!error) {
-          resolve(results);
+          resolve(data);
         } else {
           reject(error);
         }
