@@ -8,6 +8,7 @@ const storage = multer.diskStorage({
         cb(null, "./public/images")
     },
     filename: (_, file, cb) => {
+
         const nameFormat = `${Date.now()}-${file.originalname.replace(' ', '-')}${path.extname(file.originalname)}`;
         cb(null, nameFormat);
     },
@@ -40,7 +41,7 @@ const uploadBridge = {
                 })
             } else {
                 try {
-                    req.body.avatar = `http://localhost:3000/images/${req.file.filename}`
+                    req.body.avatar = `http://localhost:${process.env.PORT}/images/${req.file.filename}`
                 } catch {
                     err
                 } finally {
@@ -58,7 +59,7 @@ const uploadBridge = {
                 })
             } else {
                 try {
-                    req.body.image = `http://localhost:3000/images/${req.file.filename}`
+                    req.body.image = `http://localhost:${process.env.PORT}/images/${req.file.filename}`
                 } catch {
                     console.log(err)
                 } finally {

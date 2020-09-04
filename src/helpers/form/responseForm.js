@@ -19,9 +19,11 @@ const formResponse = {
         // console.log(query)
         const page = Number(query.page);
         const limit = Number(query.limit);
+
         // const search = query.search
         const prevPage = page === 1 ? "" : `/?search=${query.title}&sortby=${query.sortby}&order=${query.order}&page=${page - 1}&limit=${limit}`;
         const nextPage = data.length < limit ? "" : `/?search=${query.title}&sortby=${query.sortby}&order=${query.order}&page=${page + 1}&limit=${limit}`;
+
         const responseObject = {
             success: true,
             status: 200,

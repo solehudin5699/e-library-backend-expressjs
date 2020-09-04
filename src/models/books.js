@@ -25,7 +25,6 @@ const bookModels = {
     });
   },
   postNewBooks: (body) => {
-    // console.log('kambing')
     const queryString = "INSERT INTO books SET ?"
     return new Promise((resolve, reject) => {
       db.query(queryString, [body], (err, data) => {
@@ -55,9 +54,9 @@ const bookModels = {
   deleteBooks: (query) => {
     return new Promise((resolve, reject) => {
       const queryString = 'DELETE FROM books WHERE id=?';
-      db.query(queryString, [query.id], (error, results) => {
+      db.query(queryString, [query.id], (error, data) => {
         if (!error) {
-          resolve(results);
+          resolve(data);
         } else {
           reject(error);
         }

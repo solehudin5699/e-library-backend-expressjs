@@ -19,7 +19,11 @@ const bookControllers = {
     bookModels
       .postNewBooks(req.body)
       .then((data) => {
-        formResponse.success(req.body, res, data, 200);
+        const responseObj = {
+          id: data.insertId,
+          ...req.body
+        }
+        formResponse.success(res, responseObj, data);
       }).catch((error) => {
         formResponse.error(res, error, 500);
       })
@@ -38,7 +42,7 @@ const bookControllers = {
     bookModels
       .deleteBooks(req.query)
       .then((data) => {
-        formResponse.success(res, data, 200);
+        formResponse.success(res, req.query, 200);
       }).catch((error) => {
         formResponse.error(res, error, 500);
       })

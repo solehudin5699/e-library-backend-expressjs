@@ -25,3 +25,4 @@ const historyControllers = {
 }
 
 module.exports = historyControllers;
+
