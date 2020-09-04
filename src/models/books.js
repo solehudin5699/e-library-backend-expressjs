@@ -15,7 +15,6 @@ const bookModels = {
       }
     }
     return new Promise((resolve, reject) => {
-
       db.query(queryString, (error, results) => {
         if (!error) {
           resolve(results)
