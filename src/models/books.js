@@ -16,10 +16,9 @@ const bookModels = {
     });
   },
   postNewBooks: (body) => {
-    const { title, synopsis, release_year, genre_id, books_qty, image } = body
-    const queryString = "INSERT INTO books SET title=?, synopsis=?, release_year=?, genre_id=?, books_qty=?, image=?"
+    const queryString = "INSERT INTO books SET ?"
     return new Promise((resolve, reject) => {
-      db.query(queryString, [title, synopsis, release_year, genre_id, books_qty, image], (err, data) => {
+      db.query(queryString, [body], (err, data) => {
         if (!err) {
           resolve(data);
         } else {
