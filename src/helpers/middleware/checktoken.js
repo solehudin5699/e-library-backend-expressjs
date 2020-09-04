@@ -38,7 +38,6 @@ const checkToken = {
             // console.log(decoded)
             req.decodedToken = decoded
             next()
-
         } catch (e) {
             responseForm.error(res, e)
         }
