@@ -15,31 +15,71 @@ const formResponse = {
         }
         res.json(response);
     },
-    pagination: (query, res, data, status) => {
-        let page = query.page;
-        let limit = 0;
-        let prevPage = "";
-        let nextPage = "";
-        if (data.length !== 0) {
-            page = Number(query.page);
-            limit = Number(query.limit);
-            prevPage =
-                page === 1
-                    ? ""
-                    : `/books/?title=${query.title}&sortby=${query.sortby}&order=${query.order}&page=${page - 1}&limit=${limit}`;
-            nextPage = `/books/?title=${query.title}&sortby=${query.sortby}&order=${query.order}&page=${page + 1}&limit=${limit}`;
+    pagination: (query, res, data) => {
+        // console.log(query)
+        const page = Number(query.page);
+        const limit = Number(query.limit);
+        if (query.title === undefined || query.sortby === undefined || query.order === undefined) {
+            const prevPage = page === 1 ? "" : `/books/?title=${query.title}&page=${page - 1}&limit=${limit}`;
+            const nextPage = data.length < limit ? "" : `/books/?title=${query.title}&page=${page + 1}&limit=${limit}`;
+            const responseObj = {
+                success: true,
+                status: 200,
+                data,
+                pageInfo: {
+                    currentPage: query.page,
+                    limit: query.limit,
+                    prevPage,
+                    nextPage,
+                },
+            };
+            res.json(responseObj);
+        } else if (query.sortby === undefined || query.order === undefined) {
+            if (data.length === 0) {
+                const msg = {
+                    massage: `Sorry, ${query.title} is not found`
+                }
+                res.json(msg)
+            } else {
+                const prevPage = page === 1 ? "" : `/books/?title=${query.title}&page=${page - 1}&limit=${limit}`;
+                const nextPage = data.length === 0 ? "" : `/books/?title=${query.title}&page=${page + 1}&limit=${limit}`;
+                const responseObj = {
+                    success: true,
+                    status: 200,
+                    data,
+                    pageInfo: {
+                        currentPage: query.page,
+                        limit: query.limit,
+                        prevPage,
+                        nextPage,
+                    },
+                };
+                res.json(responseObj);
+            }
         }
-        const resObj = {
-            isSuccess: true,
-            status: status,
-            data,
-            pageInfo: {
-                page,
-                prevPage,
-                nextPage,
-            },
-        };
-        res.json(resObj);
+        else {
+            if (data.length === 0) {
+                const msg = {
+                    massage: `Sorry, ${query.title} is not found`
+                }
+                res.json(msg)
+            } else {
+                const prevPage = page === 1 ? "" : `/books/?title=${query.title}&sortby=${query.sortby}&order=${query.order}&page=${page - 1}&limit=${limit}`;
+                const nextPage = data.length === 0 ? "" : `/books/?title=${query.title}&sortby=${query.sortby}&order=${query.order}&page=${page + 1}&limit=${limit}`;
+                const responseObj = {
+                    success: true,
+                    status: 200,
+                    data,
+                    pageInfo: {
+                        currentPage: query.page,
+                        limit: query.limit,
+                        prevPage,
+                        nextPage,
+                    },
+                };
+                res.json(responseObj);
+            }
+        }
     }
 }
 
