@@ -36,7 +36,7 @@ const authModel = {
     },
     loginUser: (body) => {
         return new Promise((resolve, reject) => {
-            const queryString = "SELECT email, password, level_id, fullname FROM users WHERE email=?"
+            const queryString = "SELECT avatar, email, password, level_id, fullname FROM users WHERE email=?"
             db.query(queryString, body.email, (err, data) => {
                 if (!err) {
                     // console.log(data)
@@ -46,6 +46,7 @@ const authModel = {
                             if (!result) {
                                 reject({ msg: "wrong password" })
                             } else if (result === true) {
+                                const { avatar } = data [0];
                                 const { email } = body;
                                 const { level_id } = data[0];
                                 const { fullname } = data[0]
@@ -58,7 +59,7 @@ const authModel = {
                                 const token = jwt.sign(payload, process.env.SECRET_KEY)
                                 const msg = "login success"
                             
-                                resolve({ msg, token,fullname, email, level_id })
+                                resolve({ msg, token, avatar, fullname, email, level_id })
                             } else {
                                 reject(error)
                             }
