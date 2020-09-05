@@ -3,9 +3,12 @@ const db = require('../configs/dbMySql');
 
 const bookModels = {
   getAllBooks: (query) => {
+    // console.log(query)
     let queryString = "";
     const offset = (Number(query.page) - 1) * Number(query.limit);
+
     if (query.title === undefined && query.sortby === undefined && query.order === undefined) {
+
       queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id LIMIT ${query.limit} OFFSET ${offset}`
     } 
     
@@ -19,19 +22,19 @@ const bookModels = {
 
     else {
       queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id  WHERE title LIKE '%${query.title}%' ORDER BY ${query.sortby} ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
-    }
+
 
     return new Promise((resolve, reject) => {
-      db.query(queryString, (error, results) => {
+      db.query(queryString, (error, data) => {
         if (!error) {
-          resolve(results)
+          resolve(data)
         } else {
           reject(error)
         }
       });
     });
-  },
-  postNewBooks: (body) => {
+  }},
+  postNewBooks : (body) => {
     const queryString = "INSERT INTO books SET ?"
     return new Promise((resolve, reject) => {
       db.query(queryString, [body], (err, data) => {
@@ -43,8 +46,7 @@ const bookModels = {
       })
     })
   },
-  patchBooks: (body) => {
-    // console.log(id)
+  patchBooks : (body) => {
     return new Promise((resolve, reject) => {
       const queryString = `UPDATE books SET ? WHERE books.id =? `
       db.query(queryString, [body, body.id], (err, data) => {
