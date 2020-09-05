@@ -5,42 +5,42 @@ const bookModels = {
   getAllBooks: (query) => {
     let queryString = "";
     if (query.title === undefined || query.sortby === undefined || query.order === undefined) {
-      // console.log('kambidsadsang')
+    
       const offset = (Number(query.page) - 1) * Number(query.limit);
-      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id LIMIT ${query.limit} OFFSET ${offset}`
+      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id LIMIT ${query.limit} OFFSET ${offset}`
     } 
     
     else if (query.sortby === undefined || query.order === undefined) {
       const offset = (Number(query.page) - 1) * Number(query.limit);
-      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id title LIKE '%${query.title}%' LIMIT ${query.limit} OFFSET ${offset}`
+      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id title LIKE '%${query.title}%' LIMIT ${query.limit} OFFSET ${offset}`
     } 
     
     else if (query.title === undefined || query.order === undefined) {
       const offset = (Number(query.page) - 1) * Number(query.limit);
-      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id  ORDER BY ${query.sortby} LIMIT ${query.limit} OFFSET ${offset}`
+      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id  ORDER BY ${query.sortby} LIMIT ${query.limit} OFFSET ${offset}`
     } 
 
     else if (query.title === undefined || query.sortby=== undefined) {
       const offset = (Number(query.page) - 1) * Number(query.limit);
-      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
+      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
     } 
 
     else if (query.order === undefined) {
       const offset = (Number(query.page) - 1) * Number(query.limit);
-      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id title LIKE '%${query.title}%' ORDER BY ${query.sortby} LIMIT ${query.limit} OFFSET ${offset}`
+      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id title LIKE '%${query.title}%' ORDER BY ${query.sortby} LIMIT ${query.limit} OFFSET ${offset}`
     } 
     
     else if (query.sortby === undefined) {
       const offset = (Number(query.page) - 1) * Number(query.limit);
-      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id title LIKE '%${query.title}%' ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
+      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id title LIKE '%${query.title}%' ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
     } 
     
     else if (query.title === undefined) {
       const offset = (Number(query.page) - 1) * Number(query.limit);
-      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id ORDER BY ${query.sortby} ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
+      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id ORDER BY ${query.sortby} ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
     }
     else {
-      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id`
+      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id`
     }
 
     return new Promise((resolve, reject) => {
@@ -71,7 +71,7 @@ const bookModels = {
       const queryString = `UPDATE books SET ? WHERE books.id =? `
       db.query(queryString, [body, body.id], (err, data) => {
         if (!err) {
-          console.log(data)
+          
           resolve(data)
         } else {
           // console.log(err)
