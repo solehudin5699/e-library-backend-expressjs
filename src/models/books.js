@@ -42,7 +42,7 @@ const bookModels = {
       queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id ORDER BY ${query.sortby} ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
     }
     else {
-      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id`
+      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id title LIKE '%${query.title}%' ORDER BY ${query.sortby} ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
 
     }
 
