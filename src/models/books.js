@@ -3,7 +3,9 @@ const db = require('../configs/dbMySql');
 
 const bookModels = {
   getAllBooks: (query) => {
+    // console.log(query)
     let queryString = "";
+    const offset = (Number(query.page) - 1) * Number(query.limit);
     if (query.title === undefined || query.sortby === undefined || query.order === undefined) {
     
       const offset = (Number(query.page) - 1) * Number(query.limit);
@@ -41,12 +43,13 @@ const bookModels = {
     }
     else {
       queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id`
+
     }
 
     return new Promise((resolve, reject) => {
-      db.query(queryString, (error, results) => {
+      db.query(queryString, (error, data) => {
         if (!error) {
-          resolve(results)
+          resolve(data)
         } else {
           reject(error)
         }
