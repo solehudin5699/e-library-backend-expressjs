@@ -156,6 +156,30 @@ const formResponse = {
             }
         }
 
+        else if (query.sortby === undefined && query.order === undefined ) {
+            if (data.length === 0) {
+                const msg = {
+                    massage: `Sorry, ${query.title} is not found`
+                }
+                res.json(msg)
+            } else {
+                const prevPage = page === 1 ? "" : `/books/?title=${query.title}&genre_id=${query.genre_id}&release_year=${query.release_year}&page=${page - 1}&limit=${limit}`;
+                const nextPage = data.length === 0 ? "" : `/books/?title=${query.title}&genre_id=${query.genre_id}&release_year=${query.release_year}&page=${page + 1}&limit=${limit}`;
+                const responseObj = {
+                    success: true,
+                    status: 200,
+                    data,
+                    pageInfo: {
+                        currentPage: query.page,
+                        limit: query.limit,
+                        prevPage,
+                        nextPage,
+                    },
+                };
+                res.json(responseObj);
+            }
+        }
+
         else if (query.genre_id === undefined && query.release_year === undefined) {
             if (data.length === 0) {
                 const msg = {
