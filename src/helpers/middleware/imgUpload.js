@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
     },
 })
 const limits = {
-    fileSize: 1 * 1000 * 1000,
+    fileSize: 3 * 1000 * 1000,
 }
 const fileFilter = (_, file, cb) => {
     const fileTypes = /jpg|jpeg|gif|png/
