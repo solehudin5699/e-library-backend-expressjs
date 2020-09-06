@@ -20,8 +20,8 @@ const formResponse = {
         const page = Number(query.page);
         const limit = Number(query.limit);
         if (query.title === undefined && query.sortby === undefined && query.order === undefined) {
-            const prevPage = page === 1 ? "" : `/books/?title=${query.title}&page=${page - 1}&limit=${limit}`;
-            const nextPage = data.length < limit ? "" : `/books/?title=${query.title}&page=${page + 1}&limit=${limit}`;
+            const prevPage = page === 1 ? "" : `/books/?page=${page - 1}&limit=${limit}`;
+            const nextPage = data.length < limit ? "" : `/books/?page=${page + 1}&limit=${limit}`;
             const responseObj = {
                 success: true,
                 status: 200,

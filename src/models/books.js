@@ -8,17 +8,16 @@ const bookModels = {
     const offset = (Number(query.page) - 1) * Number(query.limit);
 
     if (query.title === undefined && query.sortby === undefined && query.order === undefined) {
-
       queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id LIMIT ${query.limit} OFFSET ${offset}`
-    } 
-    
-    else if (query.sortby === undefined && query.order === undefined) {    
+    }
+
+    else if (query.sortby === undefined && query.order === undefined) {
       queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id WHERE title LIKE '%${query.title}%' LIMIT ${query.limit} OFFSET ${offset}`
-    } 
-    
+    }
+
     else if (query.title === undefined) {
-      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id  ORDER BY ${query.sortby} LIMIT ${query.limit} OFFSET ${offset}`
-    } 
+      queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id  ORDER BY ${query.sortby} ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
+    }
 
     else {
       queryString = `SELECT p1.id, title, author, synopsis, release_year, genre, genre_id,image,added_at,books_qty FROM books AS p1 INNER JOIN genres AS p2 ON p1.genre_id= p2.id  WHERE title LIKE '%${query.title}%' ORDER BY ${query.sortby} ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
@@ -33,7 +32,7 @@ const bookModels = {
       });
     });
   },
-  postNewBooks : (body) => {
+  postNewBooks: (body) => {
     const queryString = "INSERT INTO books SET ?"
     return new Promise((resolve, reject) => {
       db.query(queryString, [body], (err, data) => {
@@ -45,12 +44,12 @@ const bookModels = {
       })
     })
   },
-  patchBooks : (body) => {
+  patchBooks: (body) => {
     return new Promise((resolve, reject) => {
       const queryString = `UPDATE books SET ? WHERE books.id =? `
       db.query(queryString, [body, body.id], (err, data) => {
         if (!err) {
-          
+
           resolve(data)
         } else {
           // console.log(err)
