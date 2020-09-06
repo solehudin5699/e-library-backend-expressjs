@@ -19,7 +19,7 @@ const formResponse = {
         // console.log(query)
         const page = Number(query.page);
         const limit = Number(query.limit);
-        if (query.title === undefined || query.sortby === undefined || query.order === undefined) {
+        if (query.title === undefined && query.sortby === undefined && query.order === undefined) {
             const prevPage = page === 1 ? "" : `/books/?title=${query.title}&page=${page - 1}&limit=${limit}`;
             const nextPage = data.length < limit ? "" : `/books/?title=${query.title}&page=${page + 1}&limit=${limit}`;
             const responseObj = {
@@ -34,7 +34,7 @@ const formResponse = {
                 },
             };
             res.json(responseObj);
-        } else if (query.sortby === undefined || query.order === undefined) {
+        } else if (query.sortby === undefined && query.order === undefined) {
             if (data.length === 0) {
                 const msg = {
                     massage: `Sorry, ${query.title} is not found`
