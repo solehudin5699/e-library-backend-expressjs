@@ -40,7 +40,19 @@ const borrowedModels = {
                 }
             })
         });
-    }
+    },
+    deleteBorrowed: (query) => {
+        return new Promise((resolve, reject) => {
+          const queryString = 'DELETE FROM borrowed_books WHERE id=?';
+          db.query(queryString, [query.id], (error, data) => {
+            if (!error) {
+              resolve(data);
+            } else {
+              reject(error);
+            }
+          })
+        });
+      },
 }
 
 module.exports = borrowedModels;

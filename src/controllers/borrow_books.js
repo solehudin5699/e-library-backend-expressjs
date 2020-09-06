@@ -21,6 +21,15 @@ const borrowedControllers = {
       }).catch((error) => {
         formResponse.error(res, error, 500);
       })
+  },
+  deleteBorrowed: (req, res) => {
+    borrowedModels
+      .deleteBorrowed(req.query)
+      .then((data) => {
+        formResponse.success(res, req.query, data, 200);
+      }).catch((error) => {
+        formResponse.error(res, error, 500);
+      })
   }
 }
 
