@@ -3,21 +3,24 @@ const db = require('../configs/dbMySql');
 const borrowedModels = {
     getAllBorrowed: (query) => {
         let queryString = "";
-        const offset = (Number(query.page) - 1) * Number(query.limit);
         if (query.title === undefined && query.sortby === undefined && query.order === undefined) {
-            queryString = `SELECT borrowed_books.id, title, username,users_id, author, borrow_date, duration FROM ((borrowed_books LEFT JOIN books ON borrowed_books.books_id=books.id) LEFT JOIN users ON borrowed_books.users_id = users.id) LIMIT ${query.limit} OFFSET ${offset}`;
+            queryString = `SELECT borrowed_books.id, title, fullname,user_id, author, borrow_date, duration FROM ((borrowed_books LEFT JOIN books ON borrowed_books.books_id=books.id) LEFT JOIN users ON borrowed_books.user_id = users.id)`;
         }
 
         else if (query.sortby === undefined && query.order === undefined) {
-            queryString = `SELECT borrowed_books.id, title, username,users_id, author, borrow_date, duration FROM ((borrowed_books LEFT JOIN books ON borrowed_books.books_id=books.id) LEFT JOIN users ON borrowed_books.users_id = users.id) WHERE title LIKE '%${query.title}%' LIMIT ${query.limit} OFFSET ${offset}`;
+            queryString = `SELECT borrowed_books.id, title, fullname,user_id, author, borrow_date, duration FROM ((borrowed_books LEFT JOIN books ON borrowed_books.books_id=books.id) LEFT JOIN users ON borrowed_books.user_id = users.id) WHERE title LIKE '%${query.title}%'`;
         }
 
         else if (query.title === undefined) {
-            queryString = `SELECT borrowed_books.id, title, username,users_id, author, borrow_date, duration FROM ((borrowed_books LEFT JOIN books ON borrowed_books.books_id=books.id) LEFT JOIN users ON borrowed_books.users_id = users.id) ORDER BY ${query.sortby} ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
+            queryString = `SELECT borrowed_books.id, title, fullname,user_id, author, borrow_date, duration FROM ((borrowed_books LEFT JOIN books ON borrowed_books.books_id=books.id) LEFT JOIN users ON borrowed_books.user_id = users.id) ORDER BY ${query.sortby} ${query.order}`;
+        }
+
+        else if (query.title === undefined && query.order===undefined) {
+            queryString = `SELECT borrowed_books.id, title, fullname,user_id, author, borrow_date, duration FROM ((borrowed_books LEFT JOIN books ON borrowed_books.books_id=books.id) LEFT JOIN users ON borrowed_books.user_id = users.id) ORDER BY ${query.sortby}`;
         }
 
         else {
-            queryString = `SELECT borrowed_books.id, title, username,users_id, author, borrow_date, duration FROM ((borrowed_books LEFT JOIN books ON borrowed_books.books_id=books.id) LEFT JOIN users ON borrowed_books.users_id = users.id) WHERE title LIKE '%${query.title}%' ORDER BY ${query.sortby} ${query.order} LIMIT ${query.limit} OFFSET ${offset}`
+            queryString = `SELECT borrowed_books.id, title, fullname,user_id, author, borrow_date, duration FROM ((borrowed_books LEFT JOIN books ON borrowed_books.books_id=books.id) LEFT JOIN users ON borrowed_books.user_id = users.id) WHERE title LIKE '%${query.title}%' ORDER BY ${query.sortby} ${query.order}`
         }
         return new Promise((resolve, reject) => {
             db.query(queryString, (error, data) => {
