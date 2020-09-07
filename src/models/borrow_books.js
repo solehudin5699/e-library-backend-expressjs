@@ -3,7 +3,7 @@ const db = require('../configs/dbMySql');
 const borrowedModels = {
     getAllBorrowed: () => {
         let queryString = "";
-        queryString = `SELECT borrowed_books.id, title, fullname,user_id, author, borrow_date, duration FROM ((borrowed_books LEFT JOIN books ON borrowed_books.books_id=books.id) LEFT JOIN users ON borrowed_books.user_id = users.id) `
+        queryString = `SELECT borrowed_books.id, title, fullname,user_id, author, borrow_date, duration,image FROM ((borrowed_books LEFT JOIN books ON borrowed_books.books_id=books.id) LEFT JOIN users ON borrowed_books.user_id = users.id) `
         return new Promise((resolve, reject) => {
             db.query(queryString, (error, data) => {
                 if (!error) {
