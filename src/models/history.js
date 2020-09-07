@@ -1,7 +1,7 @@
 const db = require('../configs/dbMySql');
 
 const historyModels = {
-  getAllHistory: (query) => {
+  getAllHistory: () => {
     let queryString = "";
     queryString = `SELECT history.id, title, username,users_id, author, borrow_date, duration FROM ((history LEFT JOIN books ON history.books_id=books.id) LEFT JOIN users ON history.users_id = users.id)`;
     return new Promise((resolve, reject) => {
