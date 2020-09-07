@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2020 at 03:58 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.1.31
+-- Generation Time: Sep 07, 2020 at 04:16 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -45,12 +44,24 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `title`, `author`, `synopsis`, `release_year`, `genre_id`, `image`, `added_at`, `books_qty`) VALUES
-(73, 'Buku tamu', 'Syafiq Zakin', 'Tamu kerap datang dan mengetuk pintu rumah.\nDipersilakan masuk dengan ramah. Berharap menetap selamanya, padahal hanya singgah sementara.\n\nTamu kerap datang dan duduk di ruang tamu.\nTak rela membuatnya menunggu seperti di ruang tunggu, juga tak rela menahannya seperti di ruang tahanan, apalagi senantiasa menantinya dan berharap masuk ke ruang hati.\n\nKamu sebagai tuan rumah bisa memilih, menyediakan dia secangkir kopi agar bisa singgah sebentar atau menyediakan dia secangkir hati dan siap terlukai?', 'September - 2019', 4, 'http://localhost:2300/images/1599405361980-113364_f.jpg.jpg', '2020-09-06 15:16:01', 5),
-(74, 'Geez', 'Rintik Sedu, Helloditta', 'Anna, kamu hanya seorang perempuan yang baru kutemui beberapa menit saja, tapi sebagian besar dari diriku sudah berhasil kamu curi.\n\nKamu berbeda, dan hal itu akan selalu jadi jawaban untuk setiap pertanyaan, termasuk kenapa aku menyayangimu. Aku hanya ingin membuatmu bahagia.\n\nKalau ternyata hasilnya tidak seperti yang kuperkirakan,\n\nberarti itu bukan rencanaku, Ann.\n\nBuku Rahasia Geez adalah ungkapan kejujuran Geez sejak awal mengenal Ann--perempuan yang ditemui di acara pensi sekolah, yang sangat ingin memiliki rumah pohon dengan teropong bintang. Bukan hanya tulisan, di buku ini juga terdapat ilustrasi manis yang akan membuatmu mengerti perasaan Geez kepada Ann. Bersiaplah untuk jatuh hati kepada Dewa Kejutan yang membuat Ann susah move on.', 'September - 2018', 4, 'http://localhost:2300/images/1599405465312-Buku-Rahasia-Geez.jpg.jpg', '2020-09-06 16:09:41', 4),
-(75, 'Ayat-ayat cinta 2', 'Habiburrahman El Shirazy', 'Ann, kamu hanya seorang perempuan yang baru kutemui beberapa menit saja, tapi sebagian besar dari diriku sudah berhasil kamu curi.\n\nKamu berbeda, dan hal itu akan selalu jadi jawaban untuk setiap pertanyaan, termasuk kenapa aku menyayangimu. Aku hanya ingin membuatmu bahagia.\n\nKalau ternyata hasilnya tidak seperti yang kuperkirakan,\n\nberarti itu bukan rencanaku, Ann.\n\nBuku Rahasia Geez adalah ungkapan kejujuran Geez sejak awal mengenal Ann--perempuan yang ditemui di acara pensi sekolah, yang sangat ingin memiliki rumah pohon dengan teropong bintang. Bukan hanya tulisan, di buku ini juga terdapat ilustrasi manis yang akan membuatmu mAyat Ayat Cinta 2 ini adalah karya sastra racikan Kang Abik yang mengejutkan. Lebih bcrani dan dinamis. Tapi tetap sarat makna dan pesan.\n- Melly Goeslaw, Musisi Indonesia.\n\nJika Sutarji Calzoum Bahri selalu menyihir dengan puisi-puisi mantranya, maka Habiburrahman El Shirazy selalu menyihir dengan novel-novel pembangun jiwanya. Sungguh, Ayat Ayat Cinta 2 in', 'Desember - 2017', 4, 'http://localhost:2300/images/1599405559276-Buku_Novel_Ayat_Ayat_Cinta_2_Cover_Terbaru.jpg.jpg', '2020-09-06 15:19:19', 5),
-(76, 'Suster apung', 'ARFAN SABRAN', 'Begitu banyak hal menakjubkan yang terjadi dalam masa kecil para anggota Laskar Pelangi. Sebelas orang anak Melayu Belitong yang luar biasa ini tak menyerah walau keadaan tak bersimpati pada mereka. Tengoklah Lintang, seorang kuli kopra cilik yang genius dan dengan senang hati bersepeda 80 kilometer pulang pergi untuk memuaskan dahaganya akan ilmubahkan terkadang hanya untuk menyanyikan Padamu Negeri di akhir jam sekolah. Atau Mahar, seorang pesuruh tukang parut kelapa sekaligus seniman dadakan yang imajinatif, tak logis, kreatif, dan sering diremehkan sahabat-sahabatnya, namun berhasil mengangkat derajat sekolah kampung mereka dalam karnaval 17 Agustus. Dan juga sembilan orang Laskar Pelangi lain yang begitu bersemangat dalam menjalani hidup dan berjuang meraih cita-cita. Selami ironisnya kehidupan mereka, kejujuran pemikiran mereka, indahnya petualangan mereka, dan temukan diri Anda tertawa, menangis, dan tersentuh saat membaca setiap lembarnya. Buku ini dipersembahkan buat mereka y', 'November - 2019', 5, 'http://localhost:2300/images/1599405625029-suster-apung-01.png.png', '2020-09-06 16:09:19', 5),
-(79, 'LASKAR PELANGI : ORIGINAL STORY', 'Andrea Hirata', 'laskar pelangi yaaa', 'Februari - 2020', 4, 'http://localhost:2300/images/1599406968012-1903555_583d7b58-0c6a-47e7-94b2-a7f294272c75_581_581.jpg.jpg', '2020-09-07 00:00:22', 0),
-(81, 'Pramodya', 'unknown', 'dsds', '2020', 2, 'http://localhost:2300/images/1599440987168-Rumah-Kaca.jpg.jpg', '2020-09-07 01:33:43', 0);
+(5, 'Percy Jackson & the Olympians: The Lightning Thief', 'Rick Riordan', 'Selalu rawan masalah, kehidupan remaja Percy Jackson (Logan Lerman) menjadi jauh lebih rumit ketika dia mengetahui bahwa dia adalah putra dewa Yunani Poseidon. Di tempat pelatihan untuk anak-anak dewa, Percy belajar memanfaatkan kekuatan ilahi dan mempersiapkan petualangan seumur hidup: dia harus mencegah perseteruan di antara para Olympian agar tidak meletus menjadi perang yang menghancurkan di Bumi, dan menyelamatkan ibunya dari cengkeraman dari Hades, dewa dunia bawah.', '28 Juni 2005', 4, 'http://localhost:2300/images/1599227877782-percy.jpg.jpg', '2020-09-04 13:57:58', 7),
+(6, 'Percy Jackson & the Sea of Monster', 'Rick Riordan', 'Meskipun Percy,  putra setengah manusia dewa Yunani Poseidon, pernah menyelamatkan dunia, akhir-akhir ini dia merasa kurang heroik. Namun, dia tidak punya banyak waktu untuk merenung - perbatasan terpesona yang melindungi Perkemahan Blasteran telah hancur, dan segerombolan monster mistis mengancam tempat perlindungan para dewa. Untuk menyelamatkan Perkemahan Blasteran, Percy dan teman-temannya memulai perjalanan ke Laut Monster - alias Segitiga Bermuda - untuk menemukan Bulu Emas ajaib.', '1 April 2006', 4, 'http://localhost:2300/images/1599227944076-percy-monster.jpg.jpg', '2020-09-05 06:58:02', 30),
+(7, 'Khadijah: Ketika Rahasia Mim Tersingkap', 'Sibel Eraslan', 'Khadijah terpaku. Mulutnya tak mampu mengucapkan kata itu. Sebuah kata yang berawalan huruf \"mim\". Kata itu ternyata mengandung makna yang dalam. Sebuah kata yang diibaratkan sebagai kunci, rumus, dan juga sandi. Khadijah ingin merahasiakannya. Merahasiakan dambaan hatinya, kekasih yang juga sepupunya. Khadijah tidak sendiri. Seluruh makhluk di jagad raya ini seolah telah menjadi seperti dirinya. Merindu, haus akan air segar ‘Mim’. Dan saat Khadijah berucap “mim”, ketika kedua bibirnya menutup rapat, seakan-akan udara yang ada dalam rongga mulutnya telah meniupkan cinta ke dalam hatinya. Cintanya yang teguh kepada seorang lelaki yang kelak menjadi Sang Nabi.', '14 Februari 2014', 4, 'http://localhost:2300/images/1599444700418-khadijah.jpg.jpg', '2020-09-07 02:11:40', 7),
+(8, 'Fatimah az-Zahra', 'Sibel Eraslan', 'Seorang penyair berusaha mati-matian mengisahkannya selama 40 hari di depan orang banyak di sebuah alun-alun kota Karbala. Hukuman telah menantinya karena mengaku-ngaku sebagai pengarang Diwan az-Zahra yang sangat terkenal.\nSementara itu, sebuah rombongan haji berangkat dari Karbala menuju Mekah dan Madinah membawa kerinduan pada Tanah Suci dan keluarga Rasulullah . Begitu banyak halangan dan kepedihan menimpa mereka sehingga berhaji laksana menunaikan perang dahsyat yang mempertaruhkan jiwa dan raga.\nDari sinilah semua kisah ini bermula....\nSemuanya berawal dari kerinduan. Kerinduan terhadap sebuah sosok yang luar biasa. Salah satu dari 4 wanita yang dijanjikan surga. Yang kehidupannya sangat bersahaja. Yang gerak-geriknya membuat cemburu semua wanita. Yang tingkah lakunya dipuja semua manusia. Yang menjadi belahan jiwa ayahandanya.\nDialah Fatimah az-Zahra... Sumber keindahan, kebanggaan, dan tanda pengenal yang telah dibentuk Rasulullah  dengan keindahan Alquran dan kemulian ahlak ', '5 Februari 2014', 4, 'http://localhost:2300/images/1599444727131-fatimah.jpg.jpg', '2020-09-07 02:12:07', 9),
+(9, 'The Power of Ideas', 'Baharuddin Jusuf Habibie', '“Untuk menjadi manusia jenius. Jagalah kemampuan otak dengan banyak minum air. Saya banyak minum air.” Gagasan, pencerahan, dan kiat inspirasi Habibie telah banyak menginspirasi masyarakat dan bangsa, sekaligus memperlihatkan the power of ideas. Semuanya telah membentuk dan memperkaya peradaban bangsa. Kuncinya terletak pada semua gagasan yang pernah disampaikannya, bukanlah terbatas sebagai orasi dan catatan di atas kertas belaka, tetapi sudah dijalani, ditunjukkan, dan dibuktikannya.', '18 Oktober 2018', 2, 'http://localhost:2300/images/1599227981241-bj-habibi.jpg.jpg', '2020-09-04 13:59:41', 12),
+(10, 'Tentang Kamu', 'Tere Liye', 'Terima kasih untuk kesempatan mengenalmu, itu adalah salah satu anugerah terbesar hidupku. Cinta memang tidak perlu ditemukan, cintalah yang akan menemukan kita. Terima kasih. Nasihat lama itu benar sekali, aku tidak akan menangis karena sesuatu telah berakhir, tapi aku akan tersenyum karena sesuatu itu pernah terjadi. Masa lalu. Rasa sakit. Masa depan. Mimpi-mimpi. Semua akan berlalu, seperti sungai yang mengalir. Maka biarlah hidupku mengalir seperti sungai kehidupan.', '27 Oktober 2016', 4, 'http://localhost:2300/images/1599228011043-about-you.jpg.jpg', '2020-09-04 14:00:11', 20),
+(11, 'Ayah', 'Andrea Hirata', 'Betapa Sabari menyayangi Zorro. Ingin dia memeluknya sepanjang waktu. Dia terpesona melihat makhluk kecil yang sangat indah dan seluruh kebaikan yang terpancar\ndarinya. Diciuminya anak itu dari kepala sampai ke jari-jemari kakinya yang mungil. Kalau malam Sabari susah susah tidur lantaran membayangkan bermacam rencana\nyang akan dia lalui dengan anaknya jika besar nanti. Dia ingin mengajaknya melihat pawai 17 Agustus, mengunjungi pasar malam, membelikannya mainan,\nmenggandengnya ke masjid, mengajarinya berpuasa dan mengaji, dan memboncengnya naik sepeda saban sore ke taman kota.', '1 May 2015', 4, 'http://localhost:2300/images/1599228034218-ayah.jpg.jpg', '2020-09-04 14:00:34', 15),
+(12, 'Avengers by Jason Aaron, Vol. 6: Starbrand Reborn', 'Jason Aaron', 'Starbrand terlahir kembali! Bersiaplah untuk petualangan luar angkasa epik yang membawa Avengers ke penjara alien - seukuran galaksi! Di sana, pengguna baru misterius dari Starbrand yang sangat kuat tiba-tiba muncul, melepaskan kekacauan kosmik. Untung Avengers membawa senjata rahasia mereka - Black Widow! Tetapi beberapa tokoh paling kuat dari luar bintang telah ditarik untuk menemukan Starbrand juga. Lihatlah kedatangan Three Heralds! Ditambah lagi, Thor ... terinfeksi oleh parasit alien yang dikenal sebagai Brood ?! Bukan itu yang Anda harapkan! Bersiaplah untuk ledakan kosmik yang belum pernah Anda lihat sebelumnya', '19 May 2020', 5, 'http://localhost:2300/images/1599228084134-avanger-6.jpg.jpg', '2020-09-04 14:01:24', 20),
+(13, 'Avengers by Jason Aaron, Vol. 1: The Final Host', 'Jason Aaron', 'Era baru bagi Pahlawan Terkuat di Bumi! Steve Rogers. Tony Stark. Thor Odinson. Tiga besar akhirnya bersatu kembali! Dan tepat pada waktunya untuk menyelamatkan dunia dari kehancuran total di tangan musuh terkuat mereka - dewa luar angkasa setinggi 2.000 kaki yang dikenal sebagai Celestial! Lihatlah kedatangan Tuan Rumah Terakhir! Tapi siapa yang akan menjawab panggilan saat tim baru Avengers berkumpul? Petunjuk: salah satunya memiliki tengkorak yang menyala-nyala. Saat Black Panther dan Doctor Strange bertarung untuk hidup mereka jauh di dalam bumi, Captain Marvel menghadapi kematian dan kehancuran yang menghujani langit ... dan bagaimana dengan Savage Hulk? Ditambah lagi, pertemuan Avengers tidak akan lengkap tanpa Prince of Lies tertentu! Tapi hubungan apa yang mengguncang dunia antara Dark Celestials dan band Prehistoric Avengers kuno milik Odin?', '2 Oktober 2018', 5, 'http://localhost:2300/images/1599228320049-avanger1.jpg.jpg', '2020-09-04 14:05:20', 20),
+(14, 'Star Wars, Vol. 1: Skywalker Strikes', 'Jason Aaron', 'Luke Skywalker dan kelompok pemberontak yang menentang Kekaisaran Galaktik baru saja meraih kemenangan terbesar mereka sejauh ini - penghancuran Death Star yang sangat besar. Tapi Kekaisaran belum digulingkan! Bergabunglah dengan Luke, Putri Leia, Han Solo, Chewbacca, C-3PO, R2-D2 dan anggota Rebel Alliance lainnya saat mereka berjuang untuk kebebasan melawan kejahatan Darth Vader dan tuannya, sang Kaisar! Tetapi ketika serangan Pemberontak menjadi sangat tidak beres, Han dan Leia harus berpikir cepat untuk melarikan diri - sementara Luke menemukan dirinya berhadapan langsung dengan Darth Vader! Setelah ledakan, Luke yang rendah hati kembali ke Tatooine untuk mempelajari lebih lanjut tentang mentornya Obi-Wan Kenobi. Sementara itu, Leia dan Han menjalankan misi rahasia yang vital - dan berbahaya -. Tapi bisakah mereka berhasil tanpa Luke? Plus: ancaman dari Boba Fett!', '1 Januari 2015', 5, 'http://localhost:2300/images/1599444789720-starWars1.jpg.jpg', '2020-09-07 02:13:09', 8),
+(15, 'Star Wars, Vol. 2: Showdown on the Smuggler\'s Moon', 'Jason Aaron', 'Luke melanjutkan pencariannya untuk mempelajari Jedi dengan menuju ke Kuil Jedi di Coruscant. Tetapi ketika lightsabernya dicuri, dia segera menemukan dirinya terperangkap dan dipenjara! Akankah teman-temannya datang membantunya sebelum dia dipaksa masuk ke Arena of Death? Sementara itu, Han dan Leia dihadapkan pada musuh yang tak terduga. Kekaisaran mendekati mereka, dan mereka ditempatkan di jalur pemberontak oleh seorang wanita misterius dari masa lalu Han - yang memiliki dendam yang sangat pribadi! Saat Chewbacca dilepaskan, Han mendapati dirinya berurusan dengan ... bola dan rantai ?! Anda harus membacanya untuk mempercayainya! Plus: Ketidakadilan menguasai Tatooine saat sampah jahat merajalela. Akankah Ben Kenobi mengambil risiko mengungkapkan dirinya untuk melakukan apa yang benar? Ini adalah kisah khusus dari masa lalu Obi-Wan!', '13 Januari 2016', 5, 'http://localhost:2300/images/1599444804595-starWars2.jpg.jpg', '2020-09-07 02:13:24', 8),
+(16, 'Why We Sleep: Unlocking the Power of Sleep and Dreams', 'Matthew Walker', 'Buku tidur pertama oleh pakar ilmiah terkemuka — Profesor Matthew Walker, Direktur Laboratorium Tidur dan Neuroimaging UC Berkeley — mengungkapkan eksplorasi terobosannya tentang tidur, menjelaskan bagaimana kita dapat memanfaatkan kekuatan transformatifnya untuk mengubah hidup kita menjadi lebih baik.', '3 Oktober 2017', 6, 'http://localhost:2300/images/1599228396012-sleep.jpg.jpg', '2020-09-04 14:06:36', 5),
+(17, 'Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones', 'James Clear', 'Apa pun tujuan Anda, Atomic Habits menawarkan kerangka kerja yang telah terbukti untuk meningkatkan - setiap hari. James Clear, salah satu pakar terkemuka dunia tentang pembentukan kebiasaan, mengungkapkan strategi praktis yang akan mengajari Anda dengan tepat cara membentuk kebiasaan baik, menghentikan kebiasaan buruk, dan menguasai perilaku kecil yang membawa hasil luar biasa.', '16 Oktober 2018', 6, 'http://localhost:2300/images/1599228415114-atom.jpg.jpg', '2020-09-04 14:06:55', 3),
+(18, 'The Subtle Art of Not Giving a F*ck: A Counterintuitive Approach to Living a Good Life', 'Mark Monson', 'Dalam panduan self-help yang menentukan generasi ini, seorang superstar blogger memotong omong kosong itu untuk menunjukkan kepada kita bagaimana berhenti berusaha menjadi \"positif\" sepanjang waktu sehingga kita benar-benar bisa menjadi orang yang lebih baik dan lebih bahagia.', '13 September 2016', 6, 'http://localhost:2300/images/1599228437512-the-subtle.jpg.jpg', '2020-09-04 14:07:17', 10),
+(19, 'Mohammad Hatta', 'Anom Whani Wicaksana', 'Dari judul buku ini aja, Sahabat Cemerlang semua pasti udah langsung tau, siapa tokoh utama yang ada di dalam buku ini. Yaps, Dr.(HC) Drs.H. Mohammad Hatta, orang yang pertama kali dipercaya untuk menjadi wakil presiden pertama di Indonesia. Selain itu Mohammad Hatta juga adalah seorang tokoh besar yang sangat terkenal di dunia internasional. Salah satu kata-kata bijaknya yang sangat menginspirasi dan sangat dikenang oleh masyarakat luas adalah \"Aku rela di penjara asalkan bersama buku, karena dengan buku aku bebas.\". Sahabat Cemerlang, para pemimpin terdahulu di negeri ini aja suka membaca buku, seharusnya kita sebagai generasi penerusnya mau meneladani  hal baik tersebut dan menjadikannya menjadi sebuah kebiasaan yang baik. Bicara soal meneladani, banyak banget lho hal yang bisa kita teladani dari sosok pemimpin legendaris kita yang satu ini. Mulai dari keteladanan tentang sifat kepemimpinannya, kejujuran, kesederhanaan dan masih nanyak lagi sifat baik yang bisa kita teladani dari be', '13 September 2017', 2, 'http://localhost:2300/images/1599228474911-bj-habibi.jpg.jpg', '2020-09-04 14:07:55', 10),
+(20, 'Sirah Nabawiyah', 'Syaikh Shafiyurrahman Al Mubarakfuri', 'Perjalanan Hidup Rasulullah, adalah lautan luas yang membentang, dengan kebeningan airnya yang kebiruan. Di sana tersimpan pesona alami nan abadi. Tiada mata yang bosan memandang. Tiada hati yang jemu menikmati. Tiada Berhenti orang menyalami. Karena sosok Beliau, adalah pesona sepanjang masa', '1 September 2016', 2, 'http://localhost:2300/images/1599228493808-sirah-nabawiyah.jpg.jpg', '2020-09-04 14:08:13', 10),
+(21, 'Sifat Sholat Nabi', 'Muhammad Nashiruddin al-Albani', 'Dalam masalah Sholat, bukan hanya Rasulullah memberi petunjuk dengan lisan, tetapi juga dengan praktik sehari-hari. Sehingga suatu saat beliau sholat di atas mimbar dan kemudian mengatakan, \"Sesungguhnya aku berbuat demikian agar kalian mengikuti dan mengetahui tentang sholatku.\" (HR al-Bukhari dan Muslim)', '1 Agustus 2018', 1, 'http://localhost:2300/images/1599228513095-sifaat.jpg.jpg', '2020-09-04 14:08:33', 10),
+(22, 'Sejarah Umat Islam', 'Prof.Dr.Hamka', 'Buku Sejarah Umat Islam mengupas tentang kejayaan yang pernah dilalui umat islam selama beberapa dekade hingga kejatuhannya saat berada dalam genggaman para penguasa islam yang lemah dan zalim. Layaknya sebuah drama, buku ini juga memuat tentang berbagai intrik politik dan kekuasaan, serta permusuhan dan perpecahan di kalangan umat islam, termasuk berbagai konspirasi dari pihak luar untuk menjatuhkan dan menggulingkan pemerintahan islam, seperti terjadinya Perang Salib di dunia, dan pendudukan bangsa-bangsa Eropa, seperti Portugis, Spanyol, danPrancis atas negeri=negeri islam, tidak terkecuali juga penjajahan yang berlangsung di negeri kita tercinta, Indonesia.', '1 May2018', 3, 'http://localhost:2300/images/1599228543488-sej.jpg.jpg', '2020-09-04 14:09:03', 10);
 
 -- --------------------------------------------------------
 
@@ -65,6 +76,14 @@ CREATE TABLE `borrowed_books` (
   `duration` int(255) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `borrowed_books`
+--
+
+INSERT INTO `borrowed_books` (`id`, `books_id`, `borrow_date`, `duration`, `user_id`) VALUES
+(1, 7, '2020-09-06 14:01:32', 7, 2),
+(2, 12, '2020-09-06 14:01:32', 7, 3);
 
 -- --------------------------------------------------------
 
@@ -102,6 +121,17 @@ CREATE TABLE `history` (
   `duration` int(11) NOT NULL,
   `users_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `history`
+--
+
+INSERT INTO `history` (`id`, `books_id`, `borrow_date`, `duration`, `users_id`) VALUES
+(1, 7, '2020-09-05 16:23:38', 7, 2),
+(2, 8, '2020-09-05 16:23:38', 7, 1),
+(3, 19, '2020-09-05 16:25:06', 7, 1),
+(4, 11, '2020-09-05 16:25:06', 7, 2),
+(5, 15, '2020-09-05 16:28:42', 7, 2);
 
 -- --------------------------------------------------------
 
@@ -145,7 +175,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `level_id`, `fullname`, `avatar`) VALUES
 (1, 'markus', 'markus.kambing@gmail.com', 'kambing123', 1, 'markusudin', ''),
 (2, 'kambing', 'kambingtes@gmail.com', '$2b$10$txC1i24viZw6xVeNJXoh8OuDyZ6iwQtOUvLyCstp4oa5SDxoIWlmS', 2, 'kambingkambing', ''),
-(3, 'domba', 'kambingtes@gmail.com', '$2b$10$/HK6EH4zyuXLjARBnMCIVeZpUcor1gicYmL4Fqtm.Zz3IRZMqQVvO', 2, 'kambingkambing', 'http://localhost:3000/images/1599053307061-usaha-kecil-dititip-di-warung.jpg.jpg');
+(3, 'domba', 'kambingtes@gmail.com', '$2b$10$/HK6EH4zyuXLjARBnMCIVeZpUcor1gicYmL4Fqtm.Zz3IRZMqQVvO', 2, 'kambingkambing', 'http://localhost:3000/images/1599053307061-usaha-kecil-dititip-di-warung.jpg.jpg'),
+(4, 'saya', 'saya@gmail.com', '$2b$10$IF3OgDqpQ.CCfEYpdRcoHe5MrreNodU1qxeRy.58AtgLwkPIGdsmq', 0, 'saya saya', '');
 
 --
 -- Indexes for dumped tables
@@ -195,13 +226,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `borrowed_books`
 --
 ALTER TABLE `borrowed_books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `genres`
@@ -213,7 +244,7 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `level`
@@ -225,7 +256,7 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
