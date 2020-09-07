@@ -5,9 +5,9 @@ const historyControllers = {
   getAllHistory: (req, res) => {
     // console.log("dska")
     historyModels
-      .getAllHistory(req.query)
+      .getAllHistory()
       .then((data) => {
-        formResponse.success(req.query, res, data, 200);
+        formResponse.success( res, data, 200);
       })
       .catch((error) => {
         formResponse.error(res, error, 500);
