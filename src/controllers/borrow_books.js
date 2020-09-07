@@ -2,9 +2,9 @@ const borrowedModels = require('../models/borrow_books');
 const formResponse = require('../helpers/form/responseForm');
 
 const borrowedControllers = {
-  getAllBorrowed: (req, res) => {
+  getAllBorrowed: (_, res) => {
     borrowedModels
-      .getAllBorrowed(req.query)
+      .getAllBorrowed()
       .then((data) => {
         formResponse.success(res, data, 200);
       })

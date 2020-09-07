@@ -2,7 +2,7 @@ const historyModels = require('../models/history');
 const formResponse = require('../helpers/form/responseForm');
 
 const historyControllers = {
-  getAllHistory: (req, res) => {
+  getAllHistory: (_, res) => {
     // console.log("dska")
     historyModels
       .getAllHistory()
